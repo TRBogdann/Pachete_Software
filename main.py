@@ -93,7 +93,7 @@ st.write(f"Accuracy: {accuracy:.2%}")
 
 #CDK
 st.title("Tabele")
-df_ckd = pd.read_csv("./python/dataIN/kidney_disease.csv",index_col=0)
+df_ckd = pd.read_csv("./python/kidney_disease.csv",index_col=0)
 df_cf_ckd = pd.read_csv("./conf_ckd.csv",index_col=0)
 df_res_ckd = pd.read_csv("./result.csv",index_col=0)
 
