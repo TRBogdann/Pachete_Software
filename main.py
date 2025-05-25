@@ -105,7 +105,7 @@ printCode("./python/ckd_fill.py","Completare Valori Lipsta",True)
 st.write("Matrice de corelatie")
 st.write("Matricea de corelatie arata corelatii intre coloane. Putem determina valorile lipsa pe baza realatiolor dintre acestea")
 st.dataframe(df_cf_ckd)
-printCode(" a./python/ckd.py","Gasirea celui mai bun model",True)
+printCode("./python/ckd.py","Gasirea celui mai bun model",True)
 st.dataframe(df_res_ckd)
 
 st.title("SAS")
