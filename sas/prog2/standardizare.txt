@@ -1,0 +1,3 @@
+proc standard data=anemia mean=0 std=1 out=anemia_std;
+    var Hemoglobin MCH MCHC MCV;
+run;

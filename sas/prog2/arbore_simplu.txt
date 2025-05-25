@@ -1,0 +1,6 @@
+proc hpsplit data=train;
+	class Result Gender;
+    model Result = Gender Hemoglobin MCH MCHC MCV;
+    prune costcomplexity;
+    code file='/home/u64222239/proiect/dataOUT/tree_orig_score.sas';
+run;

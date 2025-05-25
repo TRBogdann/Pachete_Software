@@ -1,0 +1,23 @@
+*Matrice de confuzie LDA;
+proc freq data=test_lda;
+    tables Result*_INTO_ / nopercent norow nocol;
+    title "Matrice de confuzie LDA";
+run;
+
+*Scor Test;
+data scored_tree_lda;
+    set test_lda;
+    %include '/home/u64222239/proiect/dataOUT/tree_lda_score.sas';
+run;
+
+*Matrice de confuzie Arbore Simplu;
+proc freq data=scored_tree_orig;
+    tables Result*P_Result1 / norow nocol nopercent;
+    title "Matrice de confuzie TREE";
+run;
+
+*Matrice de confuzie Arbore LDA;
+proc freq data=scored_tree_lda;
+    tables Result*P_Result1 / norow nocol nopercent;
+	title "Matrice de confuzie TREE_LDA";
+run;

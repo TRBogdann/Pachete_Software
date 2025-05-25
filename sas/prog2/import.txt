@@ -1,0 +1,4 @@
+proc import datafile="/home/u64222239/proiect/dataIN/anemia.csv"
+    out=anemia dbms=csv replace;
+    guessingrows=max;
+run;

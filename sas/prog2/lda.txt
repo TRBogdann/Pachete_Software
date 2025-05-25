@@ -1,0 +1,20 @@
+proc discrim data=train outstat=lda_stats outd=train_lda pool=yes method=normal;
+    class Result;
+    var Hemoglobin MCH MCHC MCV;
+run;
+
+proc discrim data=test testdata=test testout=test_lda
+    method=normal pool=yes;
+    class Result;
+    var Hemoglobin MCH MCHC MCV;
+run;
+
+data test_lda_tree;
+	set test_lda;
+	keep Gender '0'n '1'n Result;
+run;
+
+data train_lda_tree;
+	set train_lda;
+	keep Gender '0'n '1'n Result;
+run;

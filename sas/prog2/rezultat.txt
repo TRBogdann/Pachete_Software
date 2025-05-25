@@ -1,0 +1,37 @@
+proc sql noprint;
+    select mean(Result = P_Result1) 
+    into :acc_tree_orig
+    from scored_tree_orig;
+quit;
+
+proc sql noprint;
+    select mean(Result = _INTO_) 
+    into :acc_lda
+    from test_lda;
+quit;
+
+proc sql noprint;
+    select mean(Result = P_Result1) 
+    into :acc_tree_lda
+    from scored_tree_lda;
+quit;
+
+data accuracy_array;
+    array acc[3] _temporary_;
+    acc[1] = &acc_tree_orig;
+    acc[2] = &acc_lda;
+    acc[3] = &acc_tree_lda;
+
+    do i = 1 to 3;
+        Accuracy = acc[i];
+        Model = choosec(i, 'Arbore Simplu', 'LDA', 'Arbore+LDA');
+        output;
+    end;
+
+    keep Model Accuracy;
+run;
+
+proc print data=accuracy_array label;
+    title "Acuratetea Modelor Comparate";
+    format Accuracy percent8.2;
+run;

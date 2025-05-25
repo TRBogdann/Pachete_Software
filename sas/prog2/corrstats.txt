@@ -1,0 +1,8 @@
+* Statistici set de date;
+proc contents data=anemia; run;
+proc means data=anemia; run;
+
+* Corelatii;
+proc corr data=anemia plots=matrix(histogram);
+    var _numeric_;
+run;

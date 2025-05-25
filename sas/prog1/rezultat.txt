@@ -1,0 +1,5 @@
+* Rezultat;
+PROC FREQ data=reg_out;
+    tables Outcome*P_1 / nopercent norow nocol;
+    title "Matrice de confuzie";
+RUN;

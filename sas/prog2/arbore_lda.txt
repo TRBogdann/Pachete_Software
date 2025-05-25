@@ -1,0 +1,11 @@
+data scored_tree_orig;
+    set test;
+    %include '/home/u64222239/proiect/dataOUT/tree_orig_score.sas';
+run;
+
+proc hpsplit data=train_lda;
+    class Gender Result;
+    model Result = Gender '0'n '1'n;
+    prune costcomplexity;
+    code file='/home/u64222239/proiect/dataOUT/tree_lda_score.sas';
+run;

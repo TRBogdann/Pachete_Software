@@ -1,0 +1,6 @@
+PROC IMPORT DATAFILE="/home/u64222239/proiect/dataIN/diabetes_dataset.csv"
+    OUT=diabetes
+    DBMS=csv
+    REPLACE;
+    GUESSINGROWS=MAX;
+RUN;

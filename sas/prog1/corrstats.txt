@@ -1,0 +1,7 @@
+DATA cleaned_table;
+    SET diabetes;
+    IF cmiss(of _all_) THEN delete;
+RUN;
+PROC CORR DATA=cleaned_table PLOTS=matrix(HISTOGRAM);
+    VAR _numeric_;
+RUN;

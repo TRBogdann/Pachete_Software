@@ -1,0 +1,10 @@
+%MACRO COUNT_PLOT(var);
+PROC SGPLOT DATA=cleaned_table;
+    VBAR &var;
+  	TITLE "Distributie &VAR";
+run;
+%MEND;
+
+%COUNT_PLOT(FamilyHistory);
+%COUNT_PLOT(Hypertension);
+%COUNT_PLOT(DietType);

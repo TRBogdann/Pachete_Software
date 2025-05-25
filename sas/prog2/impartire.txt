@@ -1,0 +1,10 @@
+proc surveyselect data=anemia_std out=split seed=42
+    samprate=0.75 outall method=srs;
+run;
+
+data train test;
+    set split;
+    if selected then output train;
+    else output test;
+    drop selected;
+run;
